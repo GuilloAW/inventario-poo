@@ -1,6 +1,3 @@
-let circleRed;
-let squareBlue;
-let num=0;
 let productList=document.getElementById("productList");
 let boxAlert=document.getElementById("alertas");
 document.getElementById("formProduct").addEventListener("submit", function(e) {
@@ -12,12 +9,12 @@ document.getElementById("formProduct").addEventListener("submit", function(e) {
   let emptyNum=/^\s*$/;
   let wordsNum=/[A-Z,a-z]/g;
   let msng;
-if (isNaN(price)){
-    const error=new Ui();
-    error.showMsg("El campo de precio solo admite números",'wrong');
-    return false;
-}
-if (emptyNum.test(name)){
+  if (isNaN(price)){
+      const error=new Ui();
+      error.showMsg("El campo de precio solo admite números",'wrong');
+      return false;
+  }
+  if (emptyNum.test(name)){
     const error=new Ui();
     error.showMsg(`El campo de nombre esta vacio`,'wrong');
     return false;
@@ -27,7 +24,7 @@ if (emptyNum.test(name)){
       error.showMsg(`El campo de nombre solo admite texto`,'wrong');
       return false;
     }
-}
+  }
 
   const nuevoProduct=new Product(name,price,year);
   const list=new Ui();
@@ -82,4 +79,3 @@ class Ui{
     }, 3000);
   }
 }
-//dom event
